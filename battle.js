@@ -4,6 +4,7 @@ let attack = undefined;
 let Continue = undefined;
 let lvl = undefined;
 let skip = undefined;
+let sb = undefined;
 
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
@@ -11,8 +12,12 @@ function sleep(ms) {
 
 async function battle() {
 	while (start) {
+		sb = document.querySelector('[name="Start Battle"]');
 		Continue = document.querySelector('[name="Continue"]');
-		if (Continue != undefined) {
+		if (sb != undefined) {
+			sb.click();
+			await sleep(2000);
+		} else if (Continue != undefined) {
 			Continue.click();
 			await sleep(2000);
 		} else {
